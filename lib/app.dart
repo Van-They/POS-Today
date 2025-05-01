@@ -1,24 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:pos_today/core/route/app_route.dart';
+import 'package:pos_today/extension/pst_extension.dart';
+import 'package:pos_today/theme/theme.dart';
+import 'package:pos_today/widget/pst_top_appbar.dart';
 
 class AppFlavor extends StatelessWidget {
   final String flavorName;
-  const AppFlavor({super.key,this.flavorName = 'Flavor Name'});
+  const AppFlavor({super.key, this.flavorName = 'Flavor Name'});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      themeMode: ThemeMode.system,
+      darkTheme: darkTheme,
+      theme: lightTheme,
+      scaffoldMessengerKey: scaffoldKey,
+      scrollBehavior: ScrollBehavior().copyWith(
+        physics: BouncingScrollPhysics(),
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Flutter Demo Home Page'),
-        ),
-        body: const Center(
-          child: Text('Hello World!'),
-        ),
+      routerConfig: routes,
+    );
+  }
+}
+
+class MyPager extends StatelessWidget {
+  const MyPager({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: PstTopAppbar(),
+      body: Center(
+        child: Text('Test', style: TextStyle(color: context.color.primary)),
       ),
     );
   }
