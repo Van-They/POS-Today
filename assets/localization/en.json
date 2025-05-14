@@ -1,0 +1,13 @@
+{
+    "app": {
+        "name": "POS Today"
+    },
+    "language": {
+        "english": "English",
+        "khmer": "Khmer"
+    },
+    "home": {
+        "greeting": "Hello",
+        "please_choose_language": "Please choose language"
+    }
+}
