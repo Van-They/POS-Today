@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pos_today/pressentation/cart/cart_screen.dart';
+import 'package:pos_today/pressentation/home/home_content_fragment.dart';
 import 'package:pos_today/pressentation/home/home_screen.dart';
 import 'package:pos_today/pressentation/main/main_screen.dart';
+import 'package:pos_today/pressentation/profile/profile_screen.dart';
 import 'package:pos_today/pressentation/select_language/select_language_screen.dart';
+import 'package:pos_today/pressentation/wishlist/wishlist_screen.dart';
 
-final navKey = GlobalKey<NavigatorState>();
+final _rootNavKey = GlobalKey<NavigatorState>(debugLabel: "root");
+final _bottomNavKey = GlobalKey<StatefulNavigationShellState>(
+  debugLabel: "bottom nav key",
+);
+final _tabNavKey = GlobalKey<StatefulNavigationShellState>(
+  debugLabel: "tab key",
+);
 final scaffoldKey = GlobalKey<ScaffoldMessengerState>();
 
 CustomTransitionPage<dynamic> _customPageTransition(
@@ -25,7 +34,7 @@ CustomTransitionPage<dynamic> _customPageTransition(
 }
 
 final routes = GoRouter(
-  navigatorKey: navKey,
+  navigatorKey: _rootNavKey,
   initialLocation: languageRoute,
   routes: <RouteBase>[
     GoRoute(
@@ -34,19 +43,35 @@ final routes = GoRouter(
     ),
     GoRoute(path: homeRoute, builder: (context, state) => HomeScreen()),
     GoRoute(path: cartRoute, builder: (context, state) => CartScreen()),
+    GoRoute(path: wishlistRoute, builder: (context, state) => WishlistScreen()),
+    GoRoute(path: profileRoute, builder: (context, state) => ProfileScreen()),
     //bottom navigation
     StatefulShellRoute.indexedStack(
+      key: _bottomNavKey,
       builder:
           (context, state, navigationShell) =>
               MainScreen(navigationShell: navigationShell),
       branches: [
         StatefulShellBranch(
+          initialLocation: homeContentRoute,
           routes: [
-            GoRoute(
-              path: TopLevelRoute.home.routeName,
-              pageBuilder:
-                  (context, state) =>
-                      _customPageTransition(HomeScreen(), state.pageKey),
+            StatefulShellRoute.indexedStack(
+              key: _tabNavKey,
+              builder: (context, state, navigationShell) => HomeScreen(),
+              branches: [
+                StatefulShellBranch(
+                  routes: [
+                    GoRoute(
+                      path: homeContentRoute,
+                      pageBuilder:
+                          (context, state) => _customPageTransition(
+                            HomeContentFragment(),
+                            state.pageKey,
+                          ),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ],
         ),
@@ -57,6 +82,26 @@ final routes = GoRouter(
               pageBuilder:
                   (context, state) =>
                       _customPageTransition(CartScreen(), state.pageKey),
+            ),
+          ],
+        ),
+        StatefulShellBranch(
+          routes: [
+            GoRoute(
+              path: TopLevelRoute.wishlist.routeName,
+              pageBuilder:
+                  (context, state) =>
+                      _customPageTransition(WishlistScreen(), state.pageKey),
+            ),
+          ],
+        ),
+        StatefulShellBranch(
+          routes: [
+            GoRoute(
+              path: TopLevelRoute.profile.routeName,
+              pageBuilder:
+                  (context, state) =>
+                      _customPageTransition(ProfileScreen(), state.pageKey),
             ),
           ],
         ),

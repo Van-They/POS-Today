@@ -6,10 +6,12 @@ class PstText extends StatelessWidget {
   final double? fontSize;
   final FontWeight fontWeight;
   final Color? color;
+  final TextDecoration? decoration;
   const PstText({
     required this.text,
     this.fontSize,
     this.color,
+    this.decoration,
     this.fontWeight = FontWeight.normal,
     super.key,
   });
@@ -19,6 +21,7 @@ class PstText extends StatelessWidget {
     return Text(
       text,
       style: TextStyle(
+        decoration: decoration,
         fontSize: fontSize ?? 14.dp,
         fontWeight: fontWeight,
         color: color ?? context.color.onSurface,

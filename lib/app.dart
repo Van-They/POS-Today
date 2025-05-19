@@ -15,7 +15,7 @@ class AppFlavor extends StatelessWidget {
       providers: [BlocProvider(create: (context) => SettingCubit())],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
-        themeMode: ThemeMode.system,
+        themeMode: ThemeMode.light,
         darkTheme: darkTheme,
         theme: lightTheme,
         scaffoldMessengerKey: scaffoldKey,

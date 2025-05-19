@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pos_today/extension/pst_extension.dart';
-import 'package:pos_today/pressentation/main/main_screen.dart';
+import 'package:pos_today/pressentation/home/home_content_fragment.dart';
 import 'package:pos_today/pressentation/select_language/cubit/select_language_cubit.dart';
 import 'package:pos_today/widget/pst_text.dart';
 
@@ -58,14 +58,19 @@ class _SelectLanguageScreenState extends State<SelectLanguageScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           SizedBox.shrink(),
+          SizedBox.shrink(),
           PstText(text: "Please Choose Language", fontSize: 22.dp),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Card.filled(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20.dp),
+                ),
                 child: Container(
-                  padding: EdgeInsets.all(8.dp),
-                  width: 200.dp,
+                  padding: EdgeInsets.symmetric(horizontal: 8.dp),
+                  width: MediaQuery.of(context).size.width * .8,
+                  height: 56.dp,
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -82,9 +87,13 @@ class _SelectLanguageScreenState extends State<SelectLanguageScreen> {
               ),
               SizedBox(height: 8.dp),
               Card.filled(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20.dp),
+                ),
                 child: Container(
-                  padding: EdgeInsets.all(8.dp),
-                  width: 200.dp,
+                  padding: EdgeInsets.symmetric(horizontal: 8.dp),
+                  width: MediaQuery.of(context).size.width * .8,
+                  height: 56.dp,
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -101,9 +110,16 @@ class _SelectLanguageScreenState extends State<SelectLanguageScreen> {
               ),
             ],
           ),
-          OutlinedButton(onPressed: () {
-            context.go(TopLevelRoute.home.routeName);
-          }, child: PstText(text: "Next")),
+          FilledButton(
+            style: FilledButton.styleFrom(
+              fixedSize: Size(MediaQuery.of(context).size.width * .5, 56.dp)
+            ),
+            onPressed: () {
+              context.go(homeContentRoute);
+            },
+            child: PstText(text: "Next", color: context.color.surface),
+          ),
+          SizedBox.shrink(),
           SizedBox.shrink(),
         ],
       ),

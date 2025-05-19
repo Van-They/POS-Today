@@ -3,10 +3,10 @@ import 'package:go_router/go_router.dart';
 import 'package:pos_today/extension/pst_extension.dart';
 import 'package:pos_today/widget/pst_text.dart';
 
-class PstTopAppbar extends StatelessWidget implements PreferredSizeWidget {
+class PsTopAppbar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final bool automaticallyImplyLeading,centerTitle;
-  const PstTopAppbar({
+  const PsTopAppbar({
     this.title = "",
     this.centerTitle = false,
     this.automaticallyImplyLeading = false,

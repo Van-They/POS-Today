@@ -7,9 +7,7 @@ import 'package:sqflite/sqflite.dart';
 final di = GetIt.instance;
 
 Future<void> injectDependency() async {
-  di.registerSingletonAsync<Database>(() async {
-    return await initDatabase();
-  });
+  di.registerSingletonAsync<Database>(initDatabase);
 
   // shared preference
   di.registerSingleton<SharedPreferencesAsync>(SharedPreferencesAsync());
