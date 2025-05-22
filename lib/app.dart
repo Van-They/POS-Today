@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pos_today/core/route/app_route.dart';
-import 'package:pos_today/pressentation/cubit/setting_cubit.dart';
 import 'package:pos_today/theme/theme.dart';
+
+import 'core/screen/cubit/setting_cubit.dart';
 
 class AppFlavor extends StatelessWidget {
   final String flavorName;
@@ -17,7 +18,7 @@ class AppFlavor extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         themeMode: ThemeMode.light,
         darkTheme: darkTheme,
-        theme: lightTheme,
+        theme: darkTheme,
         scaffoldMessengerKey: scaffoldKey,
         scrollBehavior: ScrollBehavior().copyWith(
           physics: BouncingScrollPhysics(),

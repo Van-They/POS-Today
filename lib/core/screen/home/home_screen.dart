@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:pos_today/extension/pst_extension.dart';
-import 'package:pos_today/pressentation/home/home_mock.dart';
-import 'package:pos_today/widget/ps_product_promotion.dart';
-import 'package:pos_today/widget/pst_product.dart';
-import 'package:pos_today/widget/pst_text.dart';
+import 'package:pos_today/core/utils/pst_extension.dart';
+import 'package:pos_today/core/screen/home/home_mock.dart';
+import 'package:pos_today/widget/product_promotion.dart';
+import 'package:pos_today/widget/product.dart';
+import 'package:pos_today/widget/text.dart';
 
 const homeRoute = "/homescreen";
 

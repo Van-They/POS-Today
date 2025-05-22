@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:pos_today/extension/pst_extension.dart';
-import 'package:pos_today/widget/pst_text.dart';
+import 'package:pos_today/core/utils/pst_extension.dart';
+import 'package:pos_today/widget/text.dart';
 
 class PstProduct extends StatelessWidget {
   final String link;

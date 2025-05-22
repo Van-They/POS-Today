@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:pos_today/pressentation/cart/cart_screen.dart';
-import 'package:pos_today/pressentation/home/home_content_fragment.dart';
-import 'package:pos_today/pressentation/home/home_screen.dart';
-import 'package:pos_today/pressentation/main/main_screen.dart';
-import 'package:pos_today/pressentation/profile/profile_screen.dart';
-import 'package:pos_today/pressentation/select_language/select_language_screen.dart';
-import 'package:pos_today/pressentation/wishlist/wishlist_screen.dart';
+import 'package:pos_today/core/module/pos/pos_screen.dart';
+import 'package:pos_today/core/screen/cart/cart_screen.dart';
+import 'package:pos_today/core/screen/home/home_content_fragment.dart';
+import 'package:pos_today/core/screen/home/home_screen.dart';
+import 'package:pos_today/core/screen/main/main_screen.dart';
+import 'package:pos_today/core/screen/profile/profile_screen.dart';
+import 'package:pos_today/core/screen/select_language/select_language_screen.dart';
+import 'package:pos_today/core/screen/wishlist/wishlist_screen.dart';
 
 final _rootNavKey = GlobalKey<NavigatorState>(debugLabel: "root");
 final _bottomNavKey = GlobalKey<StatefulNavigationShellState>(
@@ -35,8 +36,15 @@ CustomTransitionPage<dynamic> _customPageTransition(
 
 final routes = GoRouter(
   navigatorKey: _rootNavKey,
-  initialLocation: languageRoute,
+  initialLocation: posRoute,
   routes: <RouteBase>[
+
+    //pos screen
+    GoRoute(
+      path: posRoute,
+      builder: (context, state) => PosScreen(),
+    ),
+
     GoRoute(
       path: languageRoute,
       builder: (context, state) => SelectLanguageScreen(),

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:pos_today/extension/pst_extension.dart';
-import 'package:pos_today/widget/pst_text.dart';
+import 'package:pos_today/core/utils/pst_extension.dart';
+import 'package:pos_today/widget/text.dart';
 
-class PsTopAppbar extends StatelessWidget implements PreferredSizeWidget {
+class PstAppbar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final bool automaticallyImplyLeading,centerTitle;
-  const PsTopAppbar({
+  const PstAppbar({
     this.title = "",
     this.centerTitle = false,
     this.automaticallyImplyLeading = false,

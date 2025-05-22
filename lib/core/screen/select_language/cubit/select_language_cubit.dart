@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pos_today/pressentation/select_language/select_language_screen.dart';
+import 'package:pos_today/core/screen/select_language/select_language_screen.dart';
 
 part 'select_language_state.dart';
 

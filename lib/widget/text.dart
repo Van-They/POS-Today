@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pos_today/extension/pst_extension.dart';
+import 'package:pos_today/core/utils/pst_extension.dart';
 
 class PstText extends StatelessWidget {
   final String text;

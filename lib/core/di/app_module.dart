@@ -1,6 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:pos_today/core/utils/language_manager.dart';
-import 'package:pos_today/data/database/pst_database.dart';
+import 'package:pos_today/data/data_source/database.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sqflite/sqflite.dart';
 

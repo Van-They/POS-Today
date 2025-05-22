@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pos_today/widget/pst_text.dart';
-import 'package:pos_today/widget/ps_top_appbar.dart';
+import 'package:pos_today/widget/text.dart';
+import 'package:pos_today/widget/top_appbar.dart';
 
 const cartRoute ="/cartscreen";
 
@@ -15,7 +15,7 @@ class _CartScreenState extends State<CartScreen> {
    @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PsTopAppbar(
+      appBar: PstAppbar(
         centerTitle: true,
         title: "Cart",
       ),
